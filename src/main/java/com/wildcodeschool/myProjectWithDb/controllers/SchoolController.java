@@ -47,7 +47,7 @@ public List<School> getSchools(@RequestParam(defaultValue = "%") String country)
                 int capacity = resulSet.getInt("capacity");
                 String pays = resulSet.getString("country");
             
-                schools.add(new School(id, name, capacity, pays));
+                schools.add(new School(id, name, capacity, country));
             }
 
             return schools;
@@ -65,13 +65,13 @@ public List<School> getSchools(@RequestParam(defaultValue = "%") String country)
         private int id;
         private String name;
         private int capacity;
-        private String pays;
+        private String country;
 
-        public School(int id, String name, int capacity, String pays) {
+        public School(int id, String name, int capacity, String country) {
             this.id = id;
             this.name = name;
             this.capacity = capacity;
-            this.pays = pays;
+            this.country = country;
         }
 
         public int getId() {
@@ -86,8 +86,8 @@ public List<School> getSchools(@RequestParam(defaultValue = "%") String country)
             return capacity;
         }
 
-        public String getPays() {
-            return pays;
+        public String getCountry() {
+            return country;
         }
 
 
